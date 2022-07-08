@@ -1,0 +1,11 @@
+package com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Serviecs;
+
+import org.springframework.stereotype.Service;
+
+import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.DTO.EmployeeFamilyMemberServicesDTO;
+
+
+public interface EmployeeFamilyMemberServices {
+	
+	EmployeeFamilyMemberServicesDTO create(final EmployeeFamilyMemberServicesDTO employeeFamilyMemberServicesDTO);
+}

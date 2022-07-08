@@ -21,10 +21,12 @@ import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Marita
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Relationship;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Table(name="EMP_FAMILY_MEMBER")
 @Data
+@Slf4j
 public class EmployeeFamilyMember {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,7 +35,7 @@ public class EmployeeFamilyMember {
 	@Column(nullable = false)
 	private  Long empId;
 	
-	@Column(name = "dob",nullable = false,length=100)
+	@Column(name = "name",nullable = false,length=100)
 	private String name;
 	
 	@Column(nullable = false ,length=6)
@@ -48,11 +50,7 @@ public class EmployeeFamilyMember {
 	@Enumerated(EnumType.STRING)
 	private  Relationship relationship;
 	
-	
-	@Basic(optional = false)
-	@Column(name = "dob", insertable= false, updatable = false)
-	@Temporal(TemporalType.DATE)
-	private Date dob;
+	private String dob;
 	
 	@Basic(optional = false)
 	private Boolean physicallyDisabled;

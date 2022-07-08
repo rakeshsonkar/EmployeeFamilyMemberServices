@@ -1,8 +1,6 @@
-package com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.response;
+package com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.DTO;
 
 import java.util.Date;
-
-
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Gender;
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.MaritalStatus;
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Relationship;
@@ -10,12 +8,14 @@ import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Relati
 import lombok.Data;
 
 @Data
-public class EmployeeFamilyResponse {
+public class EmployeeFamilyMemberServicesDTO {
+	
 	private Long id;
 	private  Long empId;
 	
 	
 	private String name;
+	
 	
 	private Gender gender;
 	
@@ -26,19 +26,15 @@ public class EmployeeFamilyResponse {
 	
 	private String dob;
 	
-
-	private Boolean physicallyDisabled;
 	
+	private Boolean physicallyDisabled;
 	
 	private int percentageDisability;
 	
-	
 	private Boolean dependent;
-	
 	
 	private Boolean employed;
 	
-
 	private Boolean nominee;
 	
 	private String siNomination;
@@ -50,4 +46,6 @@ public class EmployeeFamilyResponse {
 	private String pfNomination;
 	
 	private String gpfNomination;
+	
+
 }

@@ -1,12 +1,12 @@
 package com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.requests;
 
-import java.util.Date;
+
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.Gender;
 import com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.Enum.MaritalStatus;
@@ -24,18 +24,21 @@ public class EmployeeFamilyMemberServicesRequest {
 	@Size(max=100)
 	private String name;
 	
-	 @NotNull(message = "Please enter gender")
+	 @NotEmpty(message = "Please enter gender")
 	private Gender gender;
 	
+	 @NotEmpty(message = "Please enter maritalStatus")
 	private MaritalStatus maritalStatus;
 	
+	 @NotEmpty(message = "Please enter relationship")
 	private  Relationship relationship;
 	
 	
 //	@DateTimeFormat(pattern = "dd-mm-yyyy")
+	@NotNull(message = "Please enter dob")
 	private String dob;
 	
-	@NotNull(message = "The date of birth is required.")
+	@NotNull(message = "The physicallyDisabled is required.")
 	private Boolean physicallyDisabled;
 	
 	@NotNull(message = "The percentageDisability is required.")

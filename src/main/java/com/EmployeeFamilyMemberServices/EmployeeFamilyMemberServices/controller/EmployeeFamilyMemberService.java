@@ -1,8 +1,10 @@
 package com.EmployeeFamilyMemberServices.EmployeeFamilyMemberServices.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
+//import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,17 +25,24 @@ public class EmployeeFamilyMemberService {
 	@Autowired
 	private  EmployeeFamilyMemberServices employeeFamilyMemberServices;
 	@PostMapping("EmployeeFamilyMemberService")
-	ResponseEntity<ApiResponse<EmployeeFamilyResponse>> createEmployeeFamilyMemberService(@Validated @RequestBody final EmployeeFamilyMemberServicesRequest employeeFamilyMemberServicesRequest){
+	ResponseEntity<ApiResponse<EmployeeFamilyResponse>> createEmployeeFamilyMemberService(@Valid @RequestBody final EmployeeFamilyMemberServicesRequest employeeFamilyMemberServicesRequest){
 		log.info("geting  request in controller ",employeeFamilyMemberServicesRequest);
 		
-		EmployeeFamilyMemberServicesDTO employeeFamilyMemberServicesDTO = DataMapperUtil.converTo(employeeFamilyMemberServicesRequest,EmployeeFamilyMemberServicesDTO.class );
-		log.info(" change  class employeeFamilyMemberServicesRequest to  employeeFamilyMemberServicesDTO   ",employeeFamilyMemberServicesDTO);
-			employeeFamilyMemberServicesDTO =employeeFamilyMemberServices.create(employeeFamilyMemberServicesDTO);
 		
-		final EmployeeFamilyResponse employeeFamilyResponse =DataMapperUtil.converTo(employeeFamilyMemberServicesDTO, EmployeeFamilyResponse.class);
-		return ResponseEntity.ok(ApiResponse.success(employeeFamilyResponse));
+	
+			EmployeeFamilyMemberServicesDTO employeeFamilyMemberServicesDTO = DataMapperUtil.converTo(employeeFamilyMemberServicesRequest,EmployeeFamilyMemberServicesDTO.class );
+			log.info(" change  class employeeFamilyMemberServicesRequest to  employeeFamilyMemberServicesDTO   ",employeeFamilyMemberServicesDTO);
+				employeeFamilyMemberServicesDTO =employeeFamilyMemberServices.create(employeeFamilyMemberServicesDTO);
+			
+			final EmployeeFamilyResponse employeeFamilyResponse =DataMapperUtil.converTo(employeeFamilyMemberServicesDTO, EmployeeFamilyResponse.class);
+			return ResponseEntity.ok(ApiResponse.success(employeeFamilyResponse));
+		
 	}
 	
 	
-			
+
+
+	
+	
+		
 }
